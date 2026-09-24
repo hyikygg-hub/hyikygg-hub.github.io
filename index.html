@@ -1,18 +1,77 @@
 <!DOCTYPE html>
 <html>
+ 
 <head>
-<title>テスト</title>
+<meta charset="UTF-8">
+<title>勤務地から職種を見る</title>
+ 
+<style>
+body {
+font-family: sans-serif;
+text-align: center;
+margin-top: 50px;
+}
+ 
+button {
+font-size: 18px;
+padding: 10px 20px;
+margin: 10px;
+cursor: pointer;
+}
+ 
+#jobs {
+margin-top: 30px;
+font-size: 20px;
+}
+</style>
 </head>
-
+ 
 <body>
-
-<h1>Hello World！！！</h1>
-
-<h1>Thank you for visiting my website</h1>
-
+ 
+<h1>勤務地から職種を見る</h1>
+ 
+<button onclick="showJobs('tokyo')">東京</button>
+<button onclick="showJobs('ibaraki')">茨城</button>
+<button onclick="showJobs('osaka')">大阪</button>
+ 
+<div id="jobs">
+地域をクリックしてください
+</div>
+ 
 <script>
-alert("JavaScriptが動いています");
+ 
+const jobData = {
+ 
+tokyo: [
+"営業",
+"研究開発"
+],
+ 
+ibaraki: [
+"機械設計",
+"生産技術"
+],
+ 
+osaka: [
+"食品技術",
+"営業"
+]
+ 
+};
+ 
+function showJobs(area) {
+ 
+let html = "<h2>募集職種</h2>";
+ 
+for (let job of jobData[area]) {
+html += "<p>" + job + "</p>";
+}
+ 
+document.getElementById("jobs").innerHTML = html;
+}
+ 
 </script>
-
+ 
 </body>
+ 
 </html>
